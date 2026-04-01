@@ -1,2 +1,0 @@
-if isinstance(hist.index, pd.DatetimeIndex):
-        #     hist.index = hist.index.tz_localize(None)

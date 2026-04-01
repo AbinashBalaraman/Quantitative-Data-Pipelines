@@ -10,21 +10,17 @@ High-quality data is the foundational layer of any machine learning model. This 
 
 The repository is modularized by the stages of the data pipeline.
 
-*   `GoogleFinance/` & `YahooFinance/` & `yfin_langchain/`
-    *   **Functionality:** The Extraction layer.
-    *   **Capabilities:** Custom Python scripts designed to interface with the Yahoo Finance API (via `yfinance`) and Google Finance data sources. These modules handle pagination, rate limiting, and the extraction of historical OHLCV data and corporate financial statements. The `yfin_langchain` module further demonstrates LLM-assisted analysis of this raw financial data.
 *   `DataCleaning/`
     *   **Functionality:** The Transformation layer.
     *   **Capabilities:** Extensive scripts focusing on imputing missing variables (NaNs), normalizing floating-point data, resolving strict typing errors, and preparing diverse `.csv` and `.xlsx` structures for ingestion by neural networks or statistical modules.
 *   `clustering/`
     *   **Functionality:** The Analysis / Loading layer.
-    *   **Capabilities:** Applies unsupervised Machine Learning—specifically the K-Means Clustering algorithm via Scikit-Learn. The module takes scrubbed datasets (such as customer metrics) and programmatically determines optimal centroids to establish highly defined data segments.
+    *   **Capabilities:** Applies unsupervised Machine Learning—specifically the K-Means Clustering and HDBSCAN algorithms via Scikit-Learn. The module takes scrubbed datasets (such as customer metrics) and programmatically determines optimal centroids to establish highly defined data segments.
 
 ## Technology Stack
 
 *   **Language:** Python 3.10+
 *   **Data Processing:** `pandas`, `numpy`
-*   **Data Extraction / APIs:** `yfinance`, `requests`, `beautifulsoup4`
 *   **Machine Learning:** `scikit-learn`
 *   **Visualization:** `matplotlib`, `seaborn`
 
@@ -54,18 +50,18 @@ The repository is modularized by the stages of the data pipeline.
 
 ## Usage
 
-Each module is designed to be executed independently. For example, to run the data extraction process for Yahoo Finance:
+Each module is designed to be executed independently. For example, to execute the data cleaning pipeline:
 
 ```bash
-cd YahooFinance
-python scraper.py
+cd DataCleaning
+jupyter notebook clean.ipynb
 ```
 
-To execute the K-Means clustering model:
+To execute the K-Means and HDBSCAN clustering models:
 
 ```bash
-cd clustering
-python kmeans_segmentation.py
+cd clustering/models
+jupyter notebook KMeans.ipynb
 ```
 
 *(Note: Ensure that any necessary input datasets are placed in the requisite `/data` directories as defined locally. Standardized datasets have been omitted from the remote repository under `.gitignore` protocols.)*

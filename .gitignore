@@ -1,35 +1,43 @@
-# Byte-compiled / optimized / DLL files
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Data Files - Prevent pushing massive data dumps
+*.csv
+*.xlsx
+*.npy
+*.pkl
+*.json
+
+# Specifically allow exceptions if they are explicitly `git add -f`'d later
+!package.json
+!tsconfig.json
+!plugin.json
+!settings.json
+
+# Cache and temporary files
 __pycache__/
 *.py[cod]
 *$py.class
-
-# Credentials and Keys
-token.json
-credentials.json
-.env
-
-# Data Files (Strictly exclude sensitive/large datasets)
-*.csv
-*.xlsx
-*.xls
-*.xlsm
+*.whl
 *.7z
 *.zip
-*.tar.gz
-*.json
-
-# Jupyter
 .ipynb_checkpoints/
+.pytest_cache/
+.tox/
 
-# Virtual environments
-venv/
-env/
-.venv/
-
-# Dependencies
-node_modules/
-uv.lock
-
-# IDE files
+# IDE
 .vscode/
 .idea/
+*.swp
+*.swo
+
+# Project specific ignores
+Vector/
+Exported/
+New folder/
